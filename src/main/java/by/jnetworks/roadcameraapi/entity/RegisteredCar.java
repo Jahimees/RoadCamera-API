@@ -2,6 +2,7 @@ package by.jnetworks.roadcameraapi.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
 @Entity
@@ -9,22 +10,22 @@ public class RegisteredCar {
 
     @Id
     private String carNumber;
-    private Date timestamp;
+    private OffsetDateTime timestamp;
 
     public RegisteredCar() {
 
     }
 
-    public RegisteredCar(String carNumber, Date timestamp) {
+    public RegisteredCar(String carNumber, OffsetDateTime timestamp) {
         this.carNumber = carNumber;
         this.timestamp = timestamp;
     }
 
-    public Date getTimestamp() {
+    public OffsetDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(OffsetDateTime timestamp) {
         this.timestamp = timestamp;
     }
 

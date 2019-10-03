@@ -1,23 +1,20 @@
 package by.jnetworks.roadcameraapi.action;
 
-import java.text.ParseException;
-import java.util.Date;
 
-import static by.jnetworks.roadcameraapi.constant.Constant.STANDART_FORMAT;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
+import static by.jnetworks.roadcameraapi.constant.Constant.STANDARD_FORMAT;
 
 /////////////////////////////////////DONT FORGET ABOUT STRING - IT CAN BE INVALID
-public class DateAction {
+public abstract class DateAction {
 
-    public Date convertDate(String dateStr) {
-
-        Date date1 = new Date();
-
-        try {
-            date1 = STANDART_FORMAT.parse(dateStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date1;
+    public static OffsetDateTime convertDate(String dateStr) {
+        OffsetDateTime date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(STANDARD_FORMAT)).
+                atStartOfDay(ZoneId.systemDefault()).toOffsetDateTime();
+        return date;
     }
 
 
