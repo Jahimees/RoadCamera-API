@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,21 +40,9 @@ public class CarService {
     public List<RegisteredCar> getFilteredRegisteredCars(String carNumber, String dateStr) {
         OffsetDateTime date = DateAction.convertDate(dateStr);
         List<RegisteredCar> registeredCars = new ArrayList<>();
-        carRepository.findAllById(Collections.singleton(carNumber)).forEach(registeredCars::add);
-        return filterByDate(registeredCars, date);
-    }
-
-    //done
-    private List<RegisteredCar> filterByDate(List<RegisteredCar> cars, OffsetDateTime date) {
-        int offsetDateValue = date.getMonthValue() + date.getYear() + date.getDayOfMonth();
-        for (RegisteredCar car : cars) {
-            OffsetDateTime tmpDate = car.getTimestamp();
-            int tmpDateValue = tmpDate.getMonthValue() + tmpDate.getYear() + tmpDate.getDayOfMonth();
-            if (offsetDateValue != tmpDateValue) {
-                cars.remove(car);
-            }
-        }
-        return cars;
+        carRepository.findAll().forEach(registeredCars::add);
+        registeredCars = CarFilter.filterByCarNumber(registeredCars, carNumber);
+        return CarFilter.filterByDate(registeredCars, date);
     }
 
 }

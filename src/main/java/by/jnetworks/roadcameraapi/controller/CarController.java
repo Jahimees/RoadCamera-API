@@ -1,5 +1,6 @@
 package by.jnetworks.roadcameraapi.controller;
 
+import by.jnetworks.roadcameraapi.action.CarFilter;
 import by.jnetworks.roadcameraapi.action.CarService;
 import by.jnetworks.roadcameraapi.entity.RegisteredCar;
 import by.jnetworks.roadcameraapi.entity.RegisteredCarCount;
@@ -16,7 +17,7 @@ public class CarController {
     private CarService carService;
 
     //done
-    @RequestMapping("/registeredCarsAll")
+    @RequestMapping("/registeredCars/all")
     public List<RegisteredCar> getAllRegisteredCars() {
         return carService.getAllRegisteredCars();
     }
@@ -29,11 +30,17 @@ public class CarController {
 
     }
 
-    //REGEX ON ID!!!!!
+    //Exception
     @RequestMapping(method = RequestMethod.POST, value = "/registeredCars")
     public void registerCar(@RequestBody RegisteredCar newCar) {
-        newCar.setTimestamp(OffsetDateTime.now()); //regex on id
-        carService.addRegisteredCar(newCar);
+        String carNumber = newCar.getCarNumber();
+        if (CarFilter.validateCarNumber(carNumber)) {
+            newCar.setTimestamp(OffsetDateTime.now());
+            carService.addRegisteredCar(newCar);
+        } else {
+            System.out.println("False... Illegal format");
+            //THROW MY EXCEPTION + log
+        }
     }
 
     //done
