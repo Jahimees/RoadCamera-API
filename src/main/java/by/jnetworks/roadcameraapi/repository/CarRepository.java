@@ -1,7 +1,7 @@
 package by.jnetworks.roadcameraapi.repository;
 
-import by.jnetworks.roadcameraapi.entity.RegisteredCar;
+import by.jnetworks.roadcameraapi.entity.StoredCar;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CarRepository extends CrudRepository<RegisteredCar, String> {
+public interface CarRepository extends CrudRepository<StoredCar, String> {
 }

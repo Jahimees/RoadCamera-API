@@ -1,6 +1,7 @@
 package by.jnetworks.roadcameraapi.action;
 
 import by.jnetworks.roadcameraapi.entity.RegisteredCar;
+import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 
 import static by.jnetworks.roadcameraapi.constant.Constant.CAR_NUMBER_REGEX;
 
+@Service
 public abstract class CarFilter {
 
     public static List<RegisteredCar> filterByCarNumber(List<RegisteredCar> cars, String carNumber) {

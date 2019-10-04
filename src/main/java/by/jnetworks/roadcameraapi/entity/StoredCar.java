@@ -1,17 +1,26 @@
 package by.jnetworks.roadcameraapi.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
-public class RegisteredCar {
+@Entity
+public class StoredCar {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String carNumber;
     private OffsetDateTime timestamp;
 
-    public RegisteredCar() {
+    public StoredCar() {
 
     }
 
-    public RegisteredCar(String carNumber, OffsetDateTime timestamp) {
+    public StoredCar(String carNumber, OffsetDateTime timestamp) {
         this.carNumber = carNumber;
         this.timestamp = timestamp;
     }
@@ -61,4 +70,5 @@ public class RegisteredCar {
     public String toString() {
         return "CarNumber: " + carNumber + "\nTimestamp: " + timestamp.toString();
     }
+
 }

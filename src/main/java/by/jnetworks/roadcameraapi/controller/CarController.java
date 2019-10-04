@@ -33,14 +33,9 @@ public class CarController {
     //Exception
     @RequestMapping(method = RequestMethod.POST, value = "/registeredCars")
     public void registerCar(@RequestBody RegisteredCar newCar) {
-        String carNumber = newCar.getCarNumber();
-        if (CarFilter.validateCarNumber(carNumber)) {
-            newCar.setTimestamp(OffsetDateTime.now());
+
             carService.addRegisteredCar(newCar);
-        } else {
-            System.out.println("False... Illegal format");
-            //THROW MY EXCEPTION + log
-        }
+
     }
 
     //done

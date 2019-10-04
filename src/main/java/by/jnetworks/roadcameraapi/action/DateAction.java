@@ -1,6 +1,8 @@
 package by.jnetworks.roadcameraapi.action;
 
 
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -10,7 +12,7 @@ import java.util.regex.Pattern;
 
 import static by.jnetworks.roadcameraapi.constant.Constant.*;
 
-/////////////////////////////////////DONT FORGET ABOUT STRING - IT CAN BE INVALID
+@Service
 public abstract class DateAction {
 
     public static OffsetDateTime convertDate(String dateStr) {
