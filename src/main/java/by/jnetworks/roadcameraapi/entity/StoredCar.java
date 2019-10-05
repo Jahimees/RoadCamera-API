@@ -1,6 +1,8 @@
 package by.jnetworks.roadcameraapi.entity;
 
 
+import org.apache.catalina.Store;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -60,7 +62,7 @@ public class StoredCar {
             return false;
         }
 
-        RegisteredCar car = (RegisteredCar) obj;
+        StoredCar car = (StoredCar) obj;
         return (this.carNumber == car.getCarNumber()
                 || (this.carNumber != null && this.carNumber.equals(car.getCarNumber()))) &&
                 (timestamp == car.getTimestamp()
