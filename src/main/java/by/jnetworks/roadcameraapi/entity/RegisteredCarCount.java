@@ -1,5 +1,8 @@
 package by.jnetworks.roadcameraapi.entity;
 
+/**
+ * Entity which define total registered cars count
+ */
 public class RegisteredCarCount {
 
     private static RegisteredCarCount registeredCarCountObj;

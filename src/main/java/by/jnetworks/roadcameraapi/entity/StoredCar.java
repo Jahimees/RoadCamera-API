@@ -1,14 +1,14 @@
 package by.jnetworks.roadcameraapi.entity;
 
-
-import org.apache.catalina.Store;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.OffsetDateTime;
 
+/**
+ * Entity which responsible for storage information about all registered cars
+ */
 @Entity
 public class StoredCar {
 

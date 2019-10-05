@@ -16,10 +16,19 @@ import java.util.regex.Pattern;
 
 import static by.jnetworks.roadcameraapi.constant.Constant.*;
 
+/**
+ * Abstract class which allow parse date from string and validate these string
+ */
 @Service
 public abstract class DateAction {
     private static final Logger logger = LogManager.getLogger();
 
+    /**
+     * Converts date in string to OffsetDateTime object
+     * @param dateStr
+     * @return OffsetDateTime
+     * @throws IncorrectFormatException
+     */
     public static OffsetDateTime convertDate(String dateStr) throws IncorrectFormatException {
         OffsetDateTime date = null;
         if (isCorrectFormat(dateStr)) {
@@ -31,6 +40,11 @@ public abstract class DateAction {
         return date;
     }
 
+    /**
+     * Define whether the string is correct to convert it
+     * @param dateStr
+     * @return true - if correct, else - false
+     */
     public static boolean isCorrectFormat(String dateStr) {
         Pattern pattern = Pattern.compile(DATE_REGEX, Pattern.CASE_INSENSITIVE);;
         Matcher matcher = pattern.matcher(dateStr);

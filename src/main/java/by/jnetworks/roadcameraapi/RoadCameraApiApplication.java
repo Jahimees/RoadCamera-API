@@ -6,8 +6,9 @@ import org.hibernate.tool.schema.spi.CommandAcceptanceException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.sql.SQLSyntaxErrorException;
-
+/**
+ * Start application
+ */
 @SpringBootApplication
 public class RoadCameraApiApplication {
 

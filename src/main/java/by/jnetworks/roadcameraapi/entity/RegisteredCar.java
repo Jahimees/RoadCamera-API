@@ -2,6 +2,9 @@ package by.jnetworks.roadcameraapi.entity;
 
 import java.time.OffsetDateTime;
 
+/**
+ * Entity which sends like response
+ */
 public class RegisteredCar {
 
     private String carNumber;

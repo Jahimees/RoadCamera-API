@@ -14,6 +14,10 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * CarService class is responsible for executing commands that come from controller
+ * {@link by.jnetworks.roadcameraapi.controller.CarController}
+ */
 @Service
 public class CarService {
     private static final Logger logger = LogManager.getLogger();
@@ -21,7 +25,10 @@ public class CarService {
     @Autowired
     private CarRepository carRepository;
 
-    //done
+    /**
+     * Method returns all registered cars from repository
+     * @return List<RegisteredCar>
+     */
     public List<RegisteredCar> getAllRegisteredCars() {
         List<StoredCar> storedCarList = new ArrayList<>();
         carRepository.findAll().iterator().forEachRemaining(storedCarList::add);
@@ -30,7 +37,10 @@ public class CarService {
         return registeredCarList;
     }
 
-    //done
+    /**
+     * Method adds new car to repository
+     * @param car
+     */
     public void addRegisteredCar(RegisteredCar car) {
         String carNumber = car.getCarNumber();
         if (CarFilter.validateCarNumber(carNumber)) {
@@ -43,7 +53,10 @@ public class CarService {
         }
     }
 
-    //done
+    /**
+     * Method returns object which contain count of registered cars
+     * @return RegisteredCarCount
+     */
     public RegisteredCarCount getRegisteredCarsCount() {
         RegisteredCarCount registeredCarCount = RegisteredCarCount.getInstance();
         registeredCarCount.setRegisteredCarCount(carRepository.count());
