@@ -1,13 +1,10 @@
 package by.jnetworks.roadcameraapi.controller;
 
-import by.jnetworks.roadcameraapi.action.CarFilter;
-import by.jnetworks.roadcameraapi.action.CarService;
-import by.jnetworks.roadcameraapi.entity.RegisteredCar;
-import by.jnetworks.roadcameraapi.entity.RegisteredCarCount;
+import by.jnetworks.roadcameraapi.action.*;
+import by.jnetworks.roadcameraapi.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @RestController

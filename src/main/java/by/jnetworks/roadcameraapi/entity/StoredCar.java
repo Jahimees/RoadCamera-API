@@ -1,5 +1,6 @@
 package by.jnetworks.roadcameraapi.entity;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

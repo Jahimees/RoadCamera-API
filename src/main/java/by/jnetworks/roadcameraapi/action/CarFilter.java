@@ -1,6 +1,8 @@
 package by.jnetworks.roadcameraapi.action;
 
 import by.jnetworks.roadcameraapi.entity.RegisteredCar;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
@@ -13,6 +15,7 @@ import static by.jnetworks.roadcameraapi.constant.Constant.CAR_NUMBER_REGEX;
 
 @Service
 public abstract class CarFilter {
+    private static final Logger logger = LogManager.getLogger();
 
     public static List<RegisteredCar> filterByCarNumber(List<RegisteredCar> cars, String carNumber) {
         List<RegisteredCar> filteredCars = new ArrayList<>();
@@ -21,6 +24,7 @@ public abstract class CarFilter {
                 filteredCars.add(car);
             }
         }
+        logger.info("Cars was successfully filtered (by car number)");
         return filteredCars;
     }
 
@@ -35,6 +39,7 @@ public abstract class CarFilter {
                 filteredCars.add(car);
             }
         }
+        logger.info("Cars was successfully filtered (by date)");
         return filteredCars;
     }
 

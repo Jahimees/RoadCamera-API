@@ -1,6 +1,10 @@
 package by.jnetworks.roadcameraapi.action;
 
 
+import by.jnetworks.roadcameraapi.validation.IncorrectFormatException;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -14,15 +18,15 @@ import static by.jnetworks.roadcameraapi.constant.Constant.*;
 
 @Service
 public abstract class DateAction {
+    private static final Logger logger = LogManager.getLogger();
 
-    public static OffsetDateTime convertDate(String dateStr) {
+    public static OffsetDateTime convertDate(String dateStr) throws IncorrectFormatException {
         OffsetDateTime date = null;
         if (isCorrectFormat(dateStr)) {
             date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(STANDARD_FORMAT)).
                     atStartOfDay(ZoneId.systemDefault()).toOffsetDateTime();
         } else {
-            System.out.println("Incorrect date");
-            //throw exception
+            throw new IncorrectFormatException(dateStr + " has incorrect format. Expected format: yyyyMMdd");
         }
         return date;
     }
