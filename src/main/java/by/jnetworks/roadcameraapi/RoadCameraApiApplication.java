@@ -2,7 +2,6 @@ package by.jnetworks.roadcameraapi;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.tool.schema.spi.CommandAcceptanceException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

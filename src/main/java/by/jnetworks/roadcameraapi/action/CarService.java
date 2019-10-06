@@ -48,7 +48,7 @@ public class CarService {
             carRepository.save(Converter.convertToStoredCar(car));
             logger.info("the car is successfully saved");
         } else {
-            logger.error("Illegal carNumber format from POST-query. Actual: "
+            logger.error("Illegal carNumber format from POST-request. Actual: "
                     + carNumber + "; Expected-format: [A-Z0-9\\- ]{4,16}");
         }
     }
@@ -65,7 +65,12 @@ public class CarService {
     }
 
 
-    //done
+    /**
+     * Method returns cars with concrete carNumber and date
+     * @param carNumber
+     * @param dateStr
+     * @return List<RegisteredCar>
+     */
     public List<RegisteredCar> getFilteredRegisteredCars(String carNumber, String dateStr) {
         OffsetDateTime date = null;
         List<RegisteredCar> registeredCarList = new ArrayList<>();

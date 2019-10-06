@@ -9,7 +9,7 @@
     </parent>
     <groupId>by.jnetworks</groupId>
     <artifactId>road-camera-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <name>road-camera-api</name>
     <description>road camera Api</description>
 

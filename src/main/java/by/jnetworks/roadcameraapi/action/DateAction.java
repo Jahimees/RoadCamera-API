@@ -2,7 +2,6 @@ package by.jnetworks.roadcameraapi.action;
 
 
 import by.jnetworks.roadcameraapi.validation.IncorrectFormatException;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -49,6 +48,15 @@ public abstract class DateAction {
         Pattern pattern = Pattern.compile(DATE_REGEX, Pattern.CASE_INSENSITIVE);;
         Matcher matcher = pattern.matcher(dateStr);
         return matcher.matches();
+    }
+
+    /**
+     * Converts from OffsetDateTime to String in format "yyyy MM dd"
+     * @param offsetDateTime
+     * @return String
+     */
+    public static String convertOffsetDateToString(OffsetDateTime offsetDateTime) {
+        return offsetDateTime.getYear() + " " + offsetDateTime.getMonthValue() + " " + offsetDateTime.getDayOfMonth();
     }
 
 

@@ -44,11 +44,11 @@ public abstract class CarFilter {
      * @return List<RegisteredCar>
      */
     public static List<RegisteredCar> filterByDate(List<RegisteredCar> cars, OffsetDateTime date) {
-        String offsetDateValue = date.getYear() + " " + date.getMonthValue() + " " + date.getDayOfMonth();
+        String offsetDateValue = DateAction.convertOffsetDateToString(date);
         List<RegisteredCar> filteredCars = new ArrayList<>();
         for (RegisteredCar car : cars) {
             OffsetDateTime tmpDate = car.getTimestamp();
-            String tmpDateValue = tmpDate.getYear() + " " + tmpDate.getMonthValue() + " " + tmpDate.getDayOfMonth();
+            String tmpDateValue = DateAction.convertOffsetDateToString(tmpDate);
             if (offsetDateValue.equals(tmpDateValue)) {
                 filteredCars.add(car);
             }
@@ -56,6 +56,8 @@ public abstract class CarFilter {
         logger.info("Cars was successfully filtered (by date)");
         return filteredCars;
     }
+
+
 
     /**
      * Validate input carNumber for well format
