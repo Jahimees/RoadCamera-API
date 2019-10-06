@@ -31,10 +31,10 @@ Database works with in-memory mode.
 If you already have jar-file just execute it and application will be deployed to the local server.
 
 <b>How to work with it?</b>
-1) Server will be deployed on address: http://localhost:8080/
-2) If you want add new registered car use POST-request /registeredCars with body: 
+<p>1) Server will be deployed on address: http://localhost:8080/</p>
+<p>2) If you want add new registered car use POST-request /registeredCars with body: </p>
 <p>{ "carNumber": "carNumberExample" }</p>
-3) To get all registered cars use GET-request /registeredCars/all
-4) To get total registered cars count use GET-request /registeredCars/count
-5) To get filtered cars use GET-request with parameters "carNumber" and "date":
-http://localhost:8080/registeredCars?carNumber=sas-f2&date=20191019
+<p>3) To get all registered cars use GET-request /registeredCars/all</p>
+<p>4) To get total registered cars count use GET-request /registeredCars/count</p>
+<p>5) To get filtered cars use GET-request with parameters "carNumber" and "date":</p>
+<p>http://localhost:8080/registeredCars?carNumber=sas-f2&date=20191019</p>
