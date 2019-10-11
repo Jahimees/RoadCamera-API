@@ -1,11 +1,13 @@
 package by.jnetworks.roadcameraapi.controller;
 
 import by.jnetworks.roadcameraapi.action.*;
+import by.jnetworks.roadcameraapi.constant.Constant;
 import by.jnetworks.roadcameraapi.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 /**
  * Standard Spring rest controller class
@@ -24,9 +26,13 @@ public class CarController {
      */
     @RequestMapping("/registeredCars")
     public List<RegisteredCar> getFilteredCars(@RequestParam (required = false) String carNumber ,
-                                               @RequestParam (required = false) String date) {
-        return carService.getFilteredRegisteredCars(carNumber, date);
-
+                                               @RequestParam (required = false) String date,
+                                               @RequestParam (value = "page", required = false, defaultValue = "0") Integer page,
+                                               @RequestParam (value = "records", required = false) Integer record_count) {
+        if (record_count == null) {
+            record_count = Integer.MAX_VALUE;;
+        }
+        return carService.getFilteredRegisteredCars(carNumber, date, page, record_count);
     }
 
     /**
