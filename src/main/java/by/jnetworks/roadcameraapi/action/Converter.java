@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * Converter the abstract class which can convert RegisteredCar to StoredCar and StoredCar to RegisteredCar
  */
-@Service
-public abstract class Converter {
+public final class Converter {
     private static final Logger logger = LogManager.getLogger();
+    private Converter(){}
 
     /**
      * Method converts StoredCar to RegisteredCar

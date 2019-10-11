@@ -18,10 +18,9 @@ import static by.jnetworks.roadcameraapi.constant.Constant.*;
 /**
  * Abstract class which allow parse date from string and validate these string
  */
-@Service
-public abstract class DateAction {
+public final class DateAction {
     private static final Logger logger = LogManager.getLogger();
-
+    private DateAction(){}
     /**
      * Converts date in string to OffsetDateTime object
      * @param dateStr

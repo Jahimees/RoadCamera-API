@@ -1,13 +1,14 @@
-
+.idea
+*.log
+logs
+/derby.log
+mvnw
+mvnw.cmd
+.mvn/
 HELP.md
 target/
 !**/src/main/**
 !**/src/test/**
-/logs
-derby.log
 
-.idea
 
-mvnw
-mvnw.cmd
-.mvn/
+

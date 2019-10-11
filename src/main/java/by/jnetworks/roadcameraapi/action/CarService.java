@@ -26,18 +26,6 @@ public class CarService {
     private CarRepository carRepository;
 
     /**
-     * Method returns all registered cars from repository
-     * @return List<RegisteredCar>
-     */
-    public List<RegisteredCar> getAllRegisteredCars() {
-        List<StoredCar> storedCarList = new ArrayList<>();
-        carRepository.findAll().iterator().forEachRemaining(storedCarList::add);
-        List<RegisteredCar> registeredCarList = Converter.convertListToRegisteredCar(storedCarList);
-        logger.info("Returns all registered cars...");
-        return registeredCarList;
-    }
-
-    /**
      * Method adds new car to repository
      * @param car
      */
@@ -58,7 +46,7 @@ public class CarService {
      * @return RegisteredCarCount
      */
     public RegisteredCarCount getRegisteredCarsCount() {
-        RegisteredCarCount registeredCarCount = RegisteredCarCount.getInstance();
+        RegisteredCarCount registeredCarCount = new RegisteredCarCount();
         registeredCarCount.setRegisteredCarCount(carRepository.count());
         logger.info("Returns count of registered cars...");
         return registeredCarCount;

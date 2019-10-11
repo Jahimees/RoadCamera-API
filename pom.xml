@@ -14,7 +14,6 @@
     <description>road camera Api</description>
 
     <properties>
-        <logstash.host>logstashcsm.example.ru</logstash.host>
         <java.version>1.8</java.version>
     </properties>
 

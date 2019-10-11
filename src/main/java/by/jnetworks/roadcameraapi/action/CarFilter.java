@@ -15,10 +15,10 @@ import static by.jnetworks.roadcameraapi.constant.Constant.CAR_NUMBER_REGEX;
 
 /**
  * Abstract class which filter cars by different parameters
- */
-@Service
-public abstract class CarFilter {
+ */ 
+public final class CarFilter {
     private static final Logger logger = LogManager.getLogger();
+    private CarFilter() {}
 
     /**
      * Filter input Registered car list by carNumber and return list of cars which has defined carNumber
@@ -56,8 +56,6 @@ public abstract class CarFilter {
         logger.info("Cars was successfully filtered (by date)");
         return filteredCars;
     }
-
-
 
     /**
      * Validate input carNumber for well format

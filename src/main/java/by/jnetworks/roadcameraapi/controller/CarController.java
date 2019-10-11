@@ -16,17 +16,7 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    /**
-     * Define "getAll" command
-     * @return List<RegisteredCar>
-     */
-    @RequestMapping("/registeredCars/all")
-    public List<RegisteredCar> getAllRegisteredCars() {
-        return carService.getAllRegisteredCars();
-    }
-
-
-    /**
+     /**
      * Takes GET request, which requests data about specific car and date.
      * @param carNumber
      * @param date
