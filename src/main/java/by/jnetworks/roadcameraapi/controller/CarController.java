@@ -33,7 +33,8 @@ public class CarController {
      * @return List<RegisteredCar>
      */
     @RequestMapping("/registeredCars")
-    public List<RegisteredCar> getFilteredCars(@RequestParam String carNumber, @RequestParam String date) {
+    public List<RegisteredCar> getFilteredCars(@RequestParam (required = false) String carNumber ,
+                                               @RequestParam (required = false) String date) {
         return carService.getFilteredRegisteredCars(carNumber, date);
 
     }

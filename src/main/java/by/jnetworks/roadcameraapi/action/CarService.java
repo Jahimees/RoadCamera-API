@@ -75,15 +75,20 @@ public class CarService {
         OffsetDateTime date = null;
         List<RegisteredCar> registeredCarList = new ArrayList<>();
         try {
-            date = DateAction.convertDate(dateStr);
+
             List<StoredCar> storedCarList = new ArrayList<>();
 
             carRepository.findAll().forEach(storedCarList::add);
             registeredCarList = Converter.convertListToRegisteredCar(storedCarList);
 
-            registeredCarList = CarFilter.filterByCarNumber(registeredCarList, carNumber);
-            logger.info("Returns filtered registered cars...");
-            registeredCarList = CarFilter.filterByDate(registeredCarList, date);
+            if (carNumber != null) {
+                registeredCarList = CarFilter.filterByCarNumber(registeredCarList, carNumber);
+                logger.info("Returns filtered registered cars...");
+            }
+            if (dateStr != null) {
+                date = DateAction.convertDate(dateStr);
+                registeredCarList = CarFilter.filterByDate(registeredCarList, date);
+            }
         } catch (IncorrectFormatException e) {
             logger.error("Input date string has incorrect format. Actual: " + dateStr + "; Expected-format: yyyyMMdd");
         }
