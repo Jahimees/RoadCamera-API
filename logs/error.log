@@ -1,3 +1,0 @@
-2019-10-05T14:38:32,442 [ERROR] (CarService.java:41) - Illegal carNumber format from POST-query
-2019-10-05T14:41:33,154 [ERROR] (CarService.java:41) - Illegal carNumber format from POST-query. Actual: P; Expected-format: [A-Z0-9\- ]{4,16}
-2019-10-05T14:41:59,779 [ERROR] (CarService.java:70) - Input date string has incorrect format. Actual: 12; Expected: yyyyMMdd
